@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+use App\Jobs\AccountCreation;
+
+Route::get('/', function () {
+    dispatch(new AccountCreation) ;
+    return 'Trying to dispatch a job';
+});
+
